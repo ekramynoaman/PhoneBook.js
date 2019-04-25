@@ -5,31 +5,29 @@ var inputs    = document.getElementsByTagName('input');
 var fullName  = document.getElementById('name');
 var phone     = document.getElementById('phoneNum');
 var email     = document.getElementById('emailAddress');
-var btn       = document.getElementById('addContact');
+var addBtn    = document.getElementById('addContact');
 var srchInput = document.getElementById('search');
 var addNew    = document.getElementById('addBtn');
 var srchBtn   = document.getElementById('srchBtn');
 var tableBody = document.getElementById("table-body");
 var contacts  = [];
 
-//Display adding form
-addNew.addEventListener('click', displayForm);
+//Display (toggle) adding form
+addNew.addEventListener('click', toggleForm);
 
-function displayForm(){
+function toggleForm(){
 
-  formDiv.style.display = 'block';
+  if (formDiv.style.display === "none") {
+    formDiv.style.display = "block";
+  } else {
+    formDiv.style.display = "none";
+  }
 }
 
 
-// Hide adding form
-function hideForm(){
-
-  formDiv.style.display = 'none';
-}
-
-//add contact function
-btn.addEventListener('click', addContact);
-// store the contacts in local storage
+//Add contact function
+addBtn.addEventListener('click', addContact);
+// Get the contacts from local storage if it exist
 window.onload=function()
 {
   contacts=JSON.parse(localStorage.getItem('contacts'));
@@ -42,7 +40,7 @@ window.onload=function()
 
 };
 
-function addContact()
+function addContact(e)
 {
   var checkFeilds = fullName.value!="" && phone!="" && email!="";
 
@@ -54,7 +52,6 @@ function addContact()
     localStorage.setItem("contacts",JSON.stringify(contacts));
     displayContact();
     clearForm();
-    hideForm();
 } else{
   alert('All feilds are requiared');
 }
@@ -67,7 +64,8 @@ function displayContact()
   var trs="";
   for(var i=0; i<contacts.length; i++)
   {
-      trs += "<tr><td>"+ contacts[i].userName +"</td><td>"+ contacts[i].userPhone +"</td><td>"+ contacts[i].userEmail +'</td><td>                <button class="btn btn-danger delbtn" data-id="'+ i +'">Delete</button></td></tr>';
+
+trs += `<tr><td>${contacts[i].userName }</td><td>${contacts[i].userPhone}</td><td>${contacts[i].userEmail}</td><td>                <button class="btn btn-danger delbtn" data-id="${i}">Delete</button></td></tr>`;
 
       tableBody.innerHTML = trs;
   }
@@ -96,7 +94,7 @@ for (var i=0 ; i < contacts.length ; i++)
     if (contacts[i].userName == srchInput.value)
     {
 
-        res += "<tr><td>"+ contacts[i].userName +"</td><td>"+ contacts[i].userPhone +"</td><td>"+ contacts[i].userEmail +'</td><td>                <button class="btn btn-danger delbtn" data-id="'+ i +'">Delete</button></td></tr>';
+      res += `<tr><td>${contacts[i].userName}</td><td>${contacts[i].userPhone}  </td><td>${contacts[i].userEmail}</td><td><button class="btn btn-danger delbtn" data-id="${i}">Delete</button></td></tr>`;
 
         tableBody.innerHTML = res;
 
@@ -114,5 +112,4 @@ function clearForm()
   }
 
 }
-
 

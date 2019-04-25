@@ -22,7 +22,9 @@
         <div class="row">
 
             <div class="col-md-8 m-auto">
-                <h1 class="bg-danger text-center p-3 ">Book Phone</h1>
+                <!-- The Title -->
+                <h1 class="bg-danger text-center p-3 ">Phone Book </h1>
+                <!-- Head of fields (add new & searching) -->
                 <div class=" d-flex">
                     <div>
                         <button class="btn btn-info my-2" id="addBtn">Add NEW</button>
@@ -36,6 +38,7 @@
                         </button>
                     </div>
                 </div>
+                <!-- The Add Contact Form -->
                 <div class=" m-auto "  id="formDiv">
                         <form action="">
                             <label for="">Name</label>
@@ -44,9 +47,10 @@
                             <input type="text" class="form-control mb-2" id="phoneNum">
                             <label for="">Email address</label>
                             <input type="text" class="form-control mb-2" id="emailAddress">
-                        </form>
                         <button class="btn btn-info mb-4" id="addContact">Add Contact</button>
-                    </div>
+                    </form>
+                </div>
+                <!-- The Table of Contacts filled with JS-->
                 <table class="table  m-auto table-striped">
                     <thead>
                         <th>Name</th>
@@ -54,6 +58,7 @@
                         <th>Email</th>
                         <th></th>
                     </thead>
+                    <!--filled with JS-->
                     <tbody id="table-body">
                     </tbody>
                 </table>
