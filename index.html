@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Phone Book</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton|Gamja+Flower" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body class="bg-dark text-white">
+
+    <div class="container py-3">
+        <div class="row">
+
+            <div class="col-md-8 m-auto">
+                <h1 class="bg-danger text-center p-3 ">Book Phone</h1>
+                <div class=" d-flex">
+                    <div>
+                        <button class="btn btn-info my-2" id="addBtn">Add NEW</button>
+                    </div>
+                    <div class="search d-flex ml-5 w-100 ">
+                        <input type="text" class="form-control mr-2 my-2" id="search"
+                            placeholder="Search Contacts">
+                        <button class="btn btn-info my-2" id="srchBtn">
+                            <i class="fa fa-search"
+                                aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class=" m-auto "  id="formDiv">
+                        <form action="">
+                            <label for="">Name</label>
+                            <input type="text" class="form-control mb-2" id="name">
+                            <label for="">Phone namber</label>
+                            <input type="text" class="form-control mb-2" id="phoneNum">
+                            <label for="">Email address</label>
+                            <input type="text" class="form-control mb-2" id="emailAddress">
+                        </form>
+                        <button class="btn btn-info mb-4" id="addContact">Add Contact</button>
+                    </div>
+                <table class="table  m-auto table-striped">
+                    <thead>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th></th>
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <script src="js/main.js"></script>
+</body>
+
+</html>
